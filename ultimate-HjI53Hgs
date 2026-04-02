@@ -1,0 +1,108 @@
+{
+  "dns" : {
+    "queryStrategy" : "UseIP",
+    "servers" : [
+      "1.1.1.1",
+      "1.0.0.1"
+    ]
+  },
+  "inbounds" : [
+    {
+      "listen" : "127.0.0.1",
+      "port" : 10808,
+      "protocol" : "socks",
+      "settings" : {
+        "auth" : "noauth",
+        "udp" : true
+      },
+      "sniffing" : {
+        "destOverride" : [
+          "http",
+          "tls",
+          "quic"
+        ],
+        "enabled" : true,
+        "routeOnly" : false
+      },
+      "tag" : "socks"
+    },
+    {
+      "listen" : "127.0.0.1",
+      "port" : 10809,
+      "protocol" : "http",
+      "settings" : {
+        "allowTransparent" : false
+      },
+      "sniffing" : {
+        "destOverride" : [
+          "http",
+          "tls",
+          "quic"
+        ],
+        "enabled" : true,
+        "routeOnly" : false
+      },
+      "tag" : "http"
+    }
+  ],
+  "log" : {
+    "access" : "\/private\/var\/mobile\/Containers\/Shared\/AppGroup\/41B84A2E-67C5-4728-B05C-1A3DBB9B2B68\/Library\/Application Support\/Xray\/logs\/access.log",
+    "dnsLog" : true,
+    "loglevel" : "Warning"
+  },
+  "outbounds" : [
+    {
+      "protocol" : "vless",
+      "settings" : {
+        "vnext" : [
+          {
+            "address" : "217.16.16.30",
+            "port" : 443,
+            "users" : [
+              {
+                "encryption" : "none",
+                "flow" : "xtls-rprx-vision",
+                "id" : "805dcdf5-7754-4a4e-90fa-fc218d5be3f6"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings" : {
+        "network" : "tcp",
+        "realitySettings" : {
+          "publicKey" : "OEEYXNDZnKMmvuoLtiFEBrylE4TNsNqpljXneg_P7h4",
+          "serverName" : "ads.x5.ru",
+          "show" : false
+        },
+        "security" : "reality",
+        "tcpSettings" : {
+
+        }
+      },
+      "tag" : "proxy"
+    },
+    {
+      "protocol" : "freedom",
+      "tag" : "direct"
+    },
+    {
+      "protocol" : "blackhole",
+      "tag" : "block"
+    }
+  ],
+  "remarks" : "🇷🇺 Белые списки #2",
+  "routing" : {
+    "domainMatcher" : "hybrid",
+    "domainStrategy" : "IPIfNonMatch",
+    "rules" : [
+      {
+        "outboundTag" : "direct",
+        "protocol" : [
+          "bittorrent"
+        ],
+        "type" : "field"
+      }
+    ]
+  }
+}
