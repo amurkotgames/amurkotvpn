@@ -92,7 +92,7 @@
       "tag" : "block"
     }
   ],
-  "remarks" : "🇩🇪 Германия #1 пока что не обход!",
+  "remarks" : "🇩🇪 Германия #2",
   "routing" : {
     "domainMatcher" : "hybrid",
     "domainStrategy" : "IPIfNonMatch",
