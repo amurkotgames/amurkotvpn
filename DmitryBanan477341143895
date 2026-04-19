@@ -92,7 +92,7 @@
       "tag" : "block"
     }
   ],
-  "remarks" : "🇩🇪 Германия 01 - FREE",
+  "remarks" : "🇩🇪 Германия #1",
   "routing" : {
     "domainMatcher" : "hybrid",
     "domainStrategy" : "IPIfNonMatch",
@@ -201,7 +201,7 @@
       "tag" : "block"
     }
   ],
-  "remarks" : "🇩🇪 Германия 02 - FREE",
+  "remarks" : "🇩🇪 Германия #2",
   "routing" : {
     "domainMatcher" : "hybrid",
     "domainStrategy" : "IPIfNonMatch",
