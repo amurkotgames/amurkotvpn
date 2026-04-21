@@ -1,5 +1,3 @@
-vmess://eyJ2IjoiMiIsImFkZCI6Ik15dGdrIiwibmV0IjoidGNwIiwiaWQiOiJ0ZzogQW11ckswVCIsInBvcnQiOiI2NyIsInBzIjoi0J/QvtC00L/QuNGB0LrQsCDQtNC+OiDQkdC10YHRgdGA0L7Rh9C90L4iLCJzY3kiOiJhdXRvIiwidHlwZSI6Im5vbmUifQ==
-
 {
   "burstObservatory" : {
     "pingConfig" : {
@@ -1235,3 +1233,5 @@ vmess://eyJ2IjoiMiIsImFkZCI6Ik15dGdrIiwibmV0IjoidGNwIiwiaWQiOiJ0ZzogQW11ckswVCIs
     ]
   }
 }
+
+vmess://eyJ2IjoiMiIsImFkZCI6Ik15dGdrIiwibmV0IjoidGNwIiwiaWQiOiJ0ZzogQW11ckswVCIsInBvcnQiOiI2NyIsInBzIjoi0J/QvtC00L/QuNGB0LrQsCDQtNC+OiDQkdC10YHRgdGA0L7Rh9C90L4iLCJzY3kiOiJhdXRvIiwidHlwZSI6Im5vbmUifQ==
