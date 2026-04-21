@@ -167,6 +167,7 @@
     ]
   }
 }
+
 {
   "burstObservatory" : {
     "pingConfig" : {
