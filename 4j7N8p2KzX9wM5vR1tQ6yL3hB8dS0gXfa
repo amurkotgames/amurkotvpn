@@ -1057,7 +1057,7 @@
       }
     }
   },
-  "remarks" : "🇪🇺 Белые списки #1",
+  "remarks" : "🇪🇺SMART",
   "routing" : {
     "balancers" : [
       {
