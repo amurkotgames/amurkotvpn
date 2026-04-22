@@ -1,0 +1,150 @@
+{
+  "dns" : {
+    "queryStrategy" : "UseIP",
+    "servers" : [
+      "1.1.1.1",
+      "1.0.0.1"
+    ]
+  },
+  "inbounds" : [
+    {
+      "listen" : "127.0.0.1",
+      "port" : 10808,
+      "protocol" : "socks",
+      "settings" : {
+        "auth" : "noauth",
+        "udp" : true
+      },
+      "sniffing" : {
+        "destOverride" : [
+          "http",
+          "tls",
+          "quic"
+        ],
+        "enabled" : true,
+        "routeOnly" : false
+      },
+      "tag" : "socks"
+    },
+    {
+      "listen" : "127.0.0.1",
+      "port" : 10809,
+      "protocol" : "http",
+      "settings" : {
+        "allowTransparent" : false
+      },
+      "sniffing" : {
+        "destOverride" : [
+          "http",
+          "tls",
+          "quic"
+        ],
+        "enabled" : true,
+        "routeOnly" : false
+      },
+      "tag" : "http"
+    }
+  ],
+  "log" : {
+    "access" : "\/private\/var\/mobile\/Containers\/Shared\/AppGroup\/41B84A2E-67C5-4728-B05C-1A3DBB9B2B68\/Library\/Application Support\/Xray\/logs\/access.log",
+    "dnsLog" : true,
+    "loglevel" : "Warning"
+  },
+  "outbounds" : [
+    {
+      "protocol" : "vless",
+      "settings" : {
+        "vnext" : [
+          {
+            "address" : "free11.anotherboring.top",
+            "port" : 443,
+            "users" : [
+              {
+                "encryption" : "none",
+                "flow" : "xtls-rprx-vision",
+                "id" : "e9f36e4a-dc05-4002-b22a-bee1b3b280e1"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings" : {
+        "network" : "tcp",
+        "realitySettings" : {
+          "fingerprint" : "chrome",
+          "publicKey" : "WaH5A3t9NSHGKccTVpZeS2tgHN8wruhAaiqYsfcCZBM",
+          "serverName" : "free11.anotherboring.top",
+          "shortId" : "3ffdf35e634cbe91"
+        },
+        "security" : "reality",
+        "tcpSettings" : {
+
+        }
+      },
+      "tag" : "proxy"
+    },
+    {
+      "protocol" : "freedom",
+      "tag" : "direct"
+    },
+    {
+      "protocol" : "blackhole",
+      "tag" : "block"
+    }
+  ],
+  "remarks" : "🇩🇪 Германия #2",
+  "routing" : {
+    "domainMatcher" : "hybrid",
+    "domainStrategy" : "IPIfNonMatch",
+    "rules" : [
+      {
+        "outboundTag" : "direct",
+        "protocol" : [
+          "bittorrent"
+        ],
+        "type" : "field"
+      },
+      {
+        "domain" : [
+          "geosite:win-spy",
+          "geosite:torrent",
+          "geosite:category-ads"
+        ],
+        "outboundTag" : "block"
+      },
+      {
+        "domain" : [
+          "geosite:google-play",
+          "geosite:github",
+          "geosite:twitch-ads",
+          "geosite:youtube",
+          "geosite:telegram"
+        ],
+        "outboundTag" : "proxy"
+      },
+      {
+        "domain" : [
+          "geosite:private",
+          "geosite:category-ru",
+          "geosite:whitelist",
+          "geosite:microsoft",
+          "geosite:apple",
+          "geosite:epicgames",
+          "geosite:escapefromtarkov",
+          "geosite:steam",
+          "geosite:twitch",
+          "geosite:pinterest",
+          "geosite:faceit"
+        ],
+        "outboundTag" : "direct"
+      },
+      {
+        "ip" : [
+          "geoip:private",
+          "geoip:direct"
+        ],
+        "outboundTag" : "direct"
+      }
+    ]
+  }
+}
